@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block bodyblock %}
+  
+    <p>want to delete this item {{ item }} ?</p>
+
+    <form action="{% url 'delete' item.id %}" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'listpage' %}">cancel</a>
+        <input type="submit" value="Confirm">
+
+    </form>
+
+{% endblock bodyblock %}
